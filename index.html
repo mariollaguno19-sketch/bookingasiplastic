@@ -485,6 +485,11 @@ const DAYS_ES   = ['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'];
 // ════════════════════════════════════════════════
 // NAVIGATION
 // ════════════════════════════════════════════════
+function goToAfterService() {
+  if (state.modalidad === 'Llamada') goTo(4);
+  else goTo(3);
+}
+
 function goTo(step) {
   // Si es llamada, saltar sede/fecha (panel3) y ir directo a datos (panel4)
   if (step === 3 && state.modalidad === 'Llamada') { step = 4; }
@@ -513,7 +518,7 @@ function selectSvc(btn) {
   document.querySelectorAll('.svc-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
   state.service = btn.dataset.svc;
-  document.getElementById('btnNext1').disabled = false;
+  document.getElementById('btnNext2').disabled = false;
 }
 
 // ════════════════════════════════════════════════
